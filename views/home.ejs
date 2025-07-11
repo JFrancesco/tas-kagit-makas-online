@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tas kagit makas online</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .game {
+            width: 600px;
+            height: 600px;
+            background-color: #161616;
+            display: grid;
+            grid-template-rows: 1fr 2fr 1fr;
+
+        }
+
+        .game-top {
+            background-color: #242424;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+
+        .game-bottom {
+            background-color: #242424;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+
+        .cards {
+            width: 80%;
+            height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 70px;
+        }
+
+        .card {
+            background-image: url("https://images.pexels.com/photos/281260/pexels-photo-281260.jpeg?cs=srgb&dl=pexels-francesco-ungaro-281260.jpg&fm=jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 3px;
+            width: 100px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 22px;
+            background-color: lightgray;
+            text-shadow: 1px 1px black;
+            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        }
+
+        .game-mid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+        }
+
+        #mytas:hover {
+            transform: scale(1.1);
+        }
+
+        #mykagit:hover {
+            transform: scale(1.1);
+        }
+
+        #mymakas:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes myanim {
+            to {
+                transform: translateY(-150px);
+            }
+        }
+
+        @keyframes enemyanim {
+            to {
+                transform: translateY(150px);
+            }
+        }
+
+        @keyframes mybackanim {
+            from {
+                transform: translateY(-150px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes enemybackanim {
+            from {
+                transform: translateY(150px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="game">
+            <div class="game-top">
+                <div id="enemycards" style="display: none;" class="cards">
+                    <div id="enemymakas"
+                        style="background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk2MC1uaW5nLTE5LWcteF8xLmpwZw.jpg');transform: rotate(180deg);"
+                        class="card">MAKAS</div>
+                    <div id="enemykagit"
+                        style="background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk2MC1uaW5nLTE5LWcteF8xLmpwZw.jpg');transform: rotate(180deg);"
+                        class="card">KAĞIT</div>
+                    <div id="enemytas"
+                        style="background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk2MC1uaW5nLTE5LWcteF8xLmpwZw.jpg');transform: rotate(180deg);"
+                        class="card">TAŞ</div>
+                </div>
+            </div>
+            <div class="game-mid">
+                <h1 id="gamemsg"></h1>
+            </div>
+            <div class="game-bottom">
+                <div class="cards">
+                    <div id="mytas" class="card">TAŞ</div>
+                    <div id="mykagit" class="card">KAĞIT</div>
+                    <div id="mymakas" class="card">MAKAS</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        const gamemsg = document.getElementById("gamemsg");
+        const enemycards = document.getElementById("enemycards");
+        const mytas = document.getElementById("mytas");
+        const mykagit = document.getElementById("mykagit");
+        const mymakas = document.getElementById("mymakas");
+
+        let enemySecilen = null;
+        let mySecilen = null;
+
+
+        mytas.addEventListener("click", () => {
+            if (mySecilen == null) {
+                mySecilen = "tas";
+                mytas.style.transform = "scale(1.1)";
+                socket.emit("secilen", mySecilen);
+            }
+        });
+
+        mykagit.addEventListener("click", () => {
+            if (mySecilen == null) {
+                mySecilen = "kagit";
+                mykagit.style.transform = "scale(1.1)";
+                socket.emit("secilen", mySecilen);
+            }
+        });
+
+        mymakas.addEventListener("click", () => {
+            if (mySecilen == null) {
+                mySecilen = "makas";
+                mymakas.style.transform = "scale(1.1)";
+                socket.emit("secilen", mySecilen);
+            }
+        });
+
+
+        socket.on("kick", () => {
+            window.location.href = "https://google.com";
+        });
+
+        socket.on("msg", (message) => {
+            gamemsg.textContent = message;
+        });
+
+
+        socket.on("enemyhere", () => {
+            enemycards.style.display = "flex";
+        });
+
+        socket.on("enemynothere", () => {
+            enemycards.style.display = "none";
+        });
+
+        socket.on("enemysecilen", (secilen) => {
+            enemySecilen = secilen;
+            if (mySecilen != null) {
+                const enemycard = document.getElementById("enemy" + secilen);
+                const mycard = document.getElementById("my" + mySecilen);
+
+                
+                mycard.style.transform = "scale(1.0)";
+                mycard.style.animation = "myanim 2s forwards";
+                enemycard.style.animation = "enemyanim 2s forwards";
+
+                setTimeout(() => {
+                    mycard.style.animation = "mybackanim 2s forwards";
+                    enemycard.style.animation = "enemybackanim 2s forwards";
+
+                    setTimeout(() => {
+                        mycard.style.animation = "";
+                        enemycard.style.animation = "";
+
+                        mySecilen = null;
+                        enemySecilen = null;
+
+                        socket.emit("startagain");
+                    }, 2000);
+                }, 3000);
+
+
+
+            }
+
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
