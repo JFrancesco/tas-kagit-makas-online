@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tas kagit makas online version 1.0</title>
+    <title>tas kagit makas online version 1.1</title>
 
     <style>
         * {
@@ -26,11 +26,11 @@
             background-color: #161616;
             display: grid;
             grid-template-rows: 1fr 2fr 1fr;
-
         }
 
         .game-top {
-            background-color: #242424;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            background-color: #24242431;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -38,7 +38,8 @@
         }
 
         .game-bottom {
-            background-color: #242424;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            background-color: #24242431;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -124,6 +125,13 @@
                 transform: translateY(0);
             }
         }
+        .myscore
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
     </style>
 </head>
 
@@ -153,6 +161,7 @@
                     <div id="mymakas" class="card">MAKAS</div>
                 </div>
             </div>
+          
         </div>
     </div>
 
@@ -168,6 +177,13 @@
 
         let enemySecilen = null;
         let mySecilen = null;
+
+           socket.on("kick", () => {
+           gamemsg.textContent = "Oyunda zaten 2 kişi var oyuna bağlanamazsınız";
+           mytas.style.display = "none";
+           mykagit.style.display = "none";
+           mymakas.style.display = "none";
+        });
 
 
         mytas.addEventListener("click", () => {
@@ -195,9 +211,7 @@
         });
 
 
-        socket.on("kick", () => {
-            window.location.href = "https://google.com";
-        });
+     
 
         socket.on("msg", (message) => {
             gamemsg.textContent = message;
