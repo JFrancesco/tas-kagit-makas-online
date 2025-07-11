@@ -63,12 +63,12 @@ io.on("connection", (socket) => {
                 player1.emit("msg", "");
                 player2.emit("msg", "");
             }
-               checkSelections();
+            checkSelections();
         });
 
-    
 
-     
+
+
 
     }
     else if (player2 == null) {
@@ -109,10 +109,10 @@ io.on("connection", (socket) => {
                 player1.emit("msg", "");
                 player2.emit("msg", "");
             }
-                     checkSelections();
+            checkSelections();
         });
 
- 
+
 
 
     }
@@ -131,14 +131,12 @@ io.on("connection", (socket) => {
         if (player1?.secilen && player2?.secilen) {
             player1.emit("enemysecilen", player2.secilen);
             player2.emit("enemysecilen", player1.secilen);
+            player1.secilen = null;
+            player2.secilen = null;
         }
     }
 
 
-       player1.on("startagain",()=>{
-        player1.secilen = null;
-        player2.secilen = null;
-       });
 
 });
 

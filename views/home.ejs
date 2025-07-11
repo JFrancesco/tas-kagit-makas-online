@@ -18,19 +18,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
+         
         }
 
         .game {
             width: 600px;
             height: 600px;
-            background-color: #161616;
+            background-color:#242424;
             display: grid;
             grid-template-rows: 1fr 2fr 1fr;
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
         }
 
         .game-top {
+            background-image: url("https://cdn.wallpapersafari.com/47/48/KcwGSy.jpg");
             border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-            background-color: #24242431;
+            background-color: lightgray;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -38,8 +41,9 @@
         }
 
         .game-bottom {
+            background-image: url("https://cdn.wallpapersafari.com/47/48/KcwGSy.jpg");
             border-top: 1px solid rgba(255, 255, 255, 0.5);
-            background-color: #24242431;
+            background-color: lightgray;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -47,7 +51,7 @@
         }
 
         .cards {
-            width: 80%;
+            width: 100%;
             height: 90%;
             display: flex;
             align-items: center;
@@ -131,6 +135,47 @@
             align-items: center;
             justify-content: center;
             color: white;
+        }
+
+        @media only screen and (max-width:475px)
+        {
+            .cards
+            {
+                gap: 60px;
+            }
+            .card
+            {
+                width: 90px;
+            }
+        }
+         @media only screen and (max-width:439px)
+        {
+            .cards
+            {
+                gap: 50px;
+            }
+            .card
+            {
+                width: 80px;
+            }
+        }
+        @media only screen and (max-width:402px)
+        {
+            .cards
+            {
+                gap: 40px;
+            }
+            .card
+            {
+                width: 80px;
+            }
+        }
+        body
+        {
+            background-image: url("https://images.pexels.com/photos/281260/pexels-photo-281260.jpeg?cs=srgb&dl=pexels-francesco-ungaro-281260.jpg&fm=jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
     </style>
 </head>
